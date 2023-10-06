@@ -1,0 +1,13 @@
+<h1>Exercice 5</h1>
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prix</th>
+    <th>Puissant</th>
+  </tr>
+  <tr *ngFor="let computer of computers; let i = index; let even = even; let odd = odd" [ngClass]="{'even-row':even, 'odd-row':odd} " >
+    <td>{{ computer.name }}</td>
+    <td>{{ computer.price}} $</td>
+    <td>{{ computer.isPowerful ? 'Oui' : 'Non' }}</td>
+  </tr>
+</table>

@@ -1,0 +1,14 @@
+<h2>Exercice 2</h2>
+<form [formGroup]="form" (submit)="isSent = true">
+  <label>
+    Nom : <input type="text" formControlName="name">
+  </label>
+  <label>
+    Prénom : <input type="text" formControlName="username">
+  </label>
+  <input type="submit" [disabled]="form.invalid">
+</form>
+
+<br><br><br>
+
+<div [innerHTML]="form.value | json" *ngIf="isSent"></div>

@@ -1,0 +1,58 @@
+<h2>Exercice 3</h2>
+<form [formGroup]="form" (submit)="printConsole()">
+  <div formGroupName="generalForm">
+    <label>
+      Votre pseudo : <input type="text" formControlName="pseudo" (dblclick)="autocomplete()">
+    </label>
+    <div *ngIf="controlPseudo.dirty && controlPseudo.invalid">
+      Pseudo must be completed !
+    </div>
+
+    <br>
+    <label >
+      Votre mot de passe : <input type="password" formControlName="password">
+    </label><br>
+    <label >
+      Votre adresse mail : <input type="email" formControlName="mail">
+    </label><br>
+    <label>
+      Votre date de naissance : <input type="text" formControlName="birthDate"> <!-- Laisser en type text pour utiliser notre regex -->
+    </label><br>
+  </div>
+
+  <br><br>
+
+  <div formGroupName="otherForm">
+    <label >
+      Continuez-vous à étudier : <input type="checkbox" formControlName="continueCourse">
+    </label>
+
+    <br>
+
+    <div>
+      <label>School:  <input type="radio" formControlName="angularKnowledge" value="school"></label>
+      <label>Autodidacte:  <input type="radio" formControlName="angularKnowledge" value="autodidacte"></label>
+      <label>Both:  <input type="radio" formControlName="angularKnowledge" value="both"></label>
+    </div>
+
+    <br>
+
+    <select formControlName="gradeCourse">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </div>
+
+  <br>
+
+  <input type="reset" value="Reset">
+  <input type="submit" value="Envoyer" [disabled]="form.invalid">
+</form>

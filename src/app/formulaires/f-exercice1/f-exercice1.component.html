@@ -1,0 +1,16 @@
+<h2>Exercice 1</h2>
+<form (submit)="isSent = true" #formElement="ngForm">
+  <label>
+    Nom : <input type="text" name="name" [(ngModel)]="user.name" #inputElement="ngModel" required>
+  </label>
+  <label>
+    Prénom : <input type="text" name="username" [(ngModel)]="user.username" #inputElement="ngModel" required>
+  </label>
+  <input type="submit" [disabled]="formElement.invalid">
+</form>
+
+<div *ngIf="inputElement.dirty && inputElement.invalid">
+  Veuillez encoder votre nom.
+</div>
+<br><br><br>
+<div [innerHTML]="user | json" *ngIf="isSent"></div>
